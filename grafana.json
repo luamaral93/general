@@ -1,0 +1,123 @@
+{
+    "dashboard": {
+      "id": null,
+      "uid": null,
+      "title": "AWS RDS Aurora Metrics",
+      "tags": ["AWS", "RDS", "Aurora"],
+      "timezone": "browser",
+      "schemaVersion": 30,
+      "version": 1,
+      "panels": [
+        {
+          "title": "CPU Utilization",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "CPUUtilization",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        },
+        {
+          "title": "Database Connections",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "DatabaseConnections",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Sum"
+            }
+          ]
+        },
+        {
+          "title": "Freeable Memory",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "FreeableMemory",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        },
+        {
+          "title": "Read & Write IOPS",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "ReadIOPS",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            },
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "WriteIOPS",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        },
+        {
+          "title": "Read & Write Latency",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "ReadLatency",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            },
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "WriteLatency",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        },
+        {
+          "title": "Disk Queue Depth",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "DiskQueueDepth",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        },
+        {
+          "title": "Network Throughput (In/Out)",
+          "type": "graph",
+          "datasource": "CloudWatch",
+          "targets": [
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "NetworkReceiveThroughput",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            },
+            {
+              "namespace": "AWS/RDS",
+              "metricName": "NetworkTransmitThroughput",
+              "dimensions": {"DBInstanceIdentifier": "$db_instance"},
+              "stat": "Average"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
