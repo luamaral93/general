@@ -1,0 +1,117 @@
+1. CPU Utilization
+Métrica: CPUUtilization
+Descrição: Mede o percentual de uso da CPU da instância do banco.
+Utilidade: Identificar gargalos de processamento e avaliar a necessidade de escalabilidade.
+Stat: Average
+2. Database Connections
+Métrica: DatabaseConnections
+Descrição: Número de conexões ativas ao banco de dados.
+Utilidade: Monitorar picos de conexões e ajustar o pool de conexões conforme necessário.
+Stat: Sum
+3. Freeable Memory
+Métrica: FreeableMemory
+Descrição: Quantidade de memória disponível para uso pelo banco.
+Utilidade: Identificar situações de alto consumo de memória e evitar swapping.
+Stat: Average
+4. Read & Write IOPS
+Métricas: ReadIOPS, WriteIOPS
+Descrição: Mede a quantidade de operações de leitura e escrita por segundo.
+Utilidade: Identificar padrões de carga e possíveis gargalos de E/S.
+Stat: Average
+5. Read & Write Latency
+Métricas: ReadLatency, WriteLatency
+Descrição: Tempo médio necessário para operações de leitura e escrita no banco.
+Utilidade: Avaliar a eficiência do armazenamento e otimizar queries.
+Stat: Average
+6. Buffer Cache Hit Ratio
+Métrica: BufferCacheHitRatio
+Descrição: Percentual de vezes que as leituras são atendidas pelo cache de buffer.
+Utilidade: Indicar a eficiência da utilização do cache para evitar acessos diretos ao disco.
+Stat: Average
+7. Deadlocks per Second
+Métrica: Deadlocks
+Descrição: Número de deadlocks detectados por segundo.
+Utilidade: Identificar problemas de concorrência e otimizar transações.
+Stat: Sum
+8. Disk Queue Depth
+Métrica: DiskQueueDepth
+Descrição: Número de operações de E/S aguardando para serem processadas.
+Utilidade: Avaliar se o armazenamento está sendo um gargalo de desempenho.
+Stat: Average
+9. Network Throughput (In/Out)
+Métricas: NetworkReceiveThroughput, NetworkTransmitThroughput
+Descrição: Taxa de transferência de dados recebidos e enviados.
+Utilidade: Monitorar a eficiência da rede e identificar possíveis gargalos de comunicação.
+Stat: Average
+Métricas exclusivas do Aurora MySQL
+10. Aurora Replica Lag
+Métrica: AuroraReplicaLag
+Descrição: Mede o tempo (em segundos) que uma réplica Aurora está atrasada em relação ao nó primário.
+Utilidade: Importante para replicação e failover, evitando inconsistências nos dados.
+Stat: Average
+11. Aurora Binlog Replica Lag
+Métrica: AuroraBinlogReplicaLag
+Descrição: Mede o atraso na replicação do binlog do Aurora.
+Utilidade: Essencial para avaliar o impacto da replicação assíncrona e detectar atrasos na aplicação de logs.
+Stat: Average
+12. Active Transactions
+Métrica: ActiveTransactions
+Descrição: Número de transações ativamente em execução no banco.
+Utilidade: Monitorar a carga de trabalho e o tempo de execução das consultas.
+Stat: Sum
+13. Select Latency
+Métrica: SelectLatency
+Descrição: Tempo médio que uma consulta SELECT leva para ser executada.
+Utilidade: Identificar consultas lentas e possíveis otimizações de índices.
+Stat: Average
+14. Update Latency
+Métrica: UpdateLatency
+Descrição: Tempo médio necessário para executar operações UPDATE.
+Utilidade: Monitorar a eficiência das atualizações e otimizar consultas.
+Stat: Average
+15. Delete Latency
+Métrica: DeleteLatency
+Descrição: Mede a latência de operações DELETE.
+Utilidade: Avaliar impacto de remoções em massa e evitar operações custosas.
+Stat: Average
+16. DML Throughput
+Métrica: DMLThroughput
+Descrição: Mede a taxa de comandos DML (INSERT, UPDATE, DELETE) processados por segundo.
+Utilidade: Importante para identificar gargalos na execução de alterações no banco.
+Stat: Sum
+17. Commit Latency
+Métrica: CommitLatency
+Descrição: Tempo médio necessário para executar um COMMIT de transação.
+Utilidade: Monitorar transações longas e possíveis contenções de bloqueio.
+Stat: Average
+18. Rollback Latency
+Métrica: RollbackLatency
+Descrição: Mede o tempo médio necessário para um ROLLBACK ser concluído.
+Utilidade: Avaliar impactos de falhas em transações e otimizar gestão de erros.
+Stat: Average
+
+19. BinLogDiskUsage
+Métrica: BinLogDiskUsage
+Descrição: Quantidade de espaço em disco (em bytes) utilizado para armazenar os arquivos de binlog do MySQL.
+Utilidade: Especialmente útil para identificar quando o volume de binlogs está crescendo muito rapidamente (por exemplo, durante cargas intensas ou grandes transações), o que pode impactar o desempenho e o uso de armazenamento.
+Stat: Average
+20. VolumeBytesUsed
+Métrica: VolumeBytesUsed
+Descrição: Mede a quantidade de armazenamento alocado em uso pela instância do banco de dados.
+Utilidade: Ajuda a monitorar o consumo real de armazenamento e prever necessidades de expansão ou limpeza.
+Stat: Average
+21. EngineUptime
+Métrica: EngineUptime
+Descrição: Indica o tempo (em segundos) desde a última vez que o mecanismo do banco foi iniciado.
+Utilidade: Útil para entender possíveis reinicializações do banco (planejadas ou não) e relacionar instabilidades a essas reinicializações.
+Stat: Sum (porque a métrica é acumulada ao longo do tempo e o valor costuma ser crescente)
+22. Queries
+Métrica: Queries
+Descrição: Número de instruções SQL executadas pelo Aurora MySQL em um intervalo de tempo.
+Utilidade: Fornece uma visão geral da carga de trabalho do banco, permitindo correlacionar picos de consultas a eventuais degradações de performance.
+Stat: Sum (para somar o total de consultas em determinado período)
+23. SwapUsage
+Métrica: SwapUsage
+Descrição: Quantidade de memória que o sistema operacional moveu para a partição de swap.
+Utilidade: Se esse valor estiver subindo, pode indicar que a instância não tem memória suficiente ou está com configurações inadequadas, podendo levar a degradação de desempenho.
+Stat: Average (para acompanhar a variação de uso de swap ao longo do tempo)
